@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Customer Detail{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="mb-4">Customer {{ customer.firstname }} {{ customer.lastname }}</h2>
+                <table class="table table-bordered table-hover align-middle bg-white">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>Portfolio List</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ customer.id }}</td>
+                            <td>{{ customer.firstname }}</td>
+                            <td>{{ customer.lastname }}</td>
+                            <td>
+                                <ul class="mb-0">
+                                    {% for portfolio in portfolios %}
+                                    <li><a href="/portfolio/{{ portfolio.id }}/" target="_blank">{{ portfolio.name }}</a></li>
+                                    {% empty %}
+                                    <li>No portfolios found.</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Customers{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Customers</h2>
+    <div>
+        <a href="{% url 'add_customer' %}" class="btn btn-primary me-2">Add Customer</a>
+        <a href="{% url 'bulk_delete_customers' %}" class="btn btn-danger">Delete Customers</a>
+    </div>
+</div>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <table class="table table-bordered table-hover align-middle bg-white">
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Portfolio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.id }}</td>
+                    <td>{{ customer.firstname }}</td>
+                    <td>{{ customer.lastname }}</td>
+                    <td><a href="{% url 'customer_detail' customer.id %}">here</a></td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No customers found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

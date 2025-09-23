@@ -1,0 +1,20 @@
+
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('interface', '0001_initial'),
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='Portfolio',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=100, unique=True)),
+                ('assets', models.TextField(help_text='Comma-separated list of assets, e.g. Bitcoin, USD, Gold')),
+            ],
+        ),
+    ]

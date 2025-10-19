@@ -16,7 +16,7 @@ KEYWORDS_FILE = os.path.join(dirname, '../data_transfer/keywords.json')
 CONTENT_FILE = os.path.join(dirname, '../data_transfer/content.json') 
 FILINGS_FILE = os.path.join(dirname, '../data_transfer/filings.json')
 
-newsapi = NewsApiClient(api_key="7518dca56f314bef898357616ee86dc2")
+newsapi = NewsApiClient(api_key="") // add key
 
 def load_keywords():
     keywords = []
@@ -58,7 +58,7 @@ def fetch_specific():
         json.dump(content, f)
     
 def fetch_sec_filings():
-    api = "bba9312593e9ddba5774fa1cef849567d28833bb07d900cd0a9d2ad5b37c4c91"
+    api = "" // add key
     queryApi = QueryApi(api_key=api)
     renderApi = RenderApi(api_key=api)
     query = {
